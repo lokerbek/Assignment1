@@ -15,20 +15,20 @@ public class Main {
     }
 
     public static String task3(int n) {
-        return checkPrime(n, 2) ? "Prime" : "Composite";
+        return check(n, 2) ? "Prime" : "Composite";
     }
 
-    private static boolean checkPrime(int n, int divisor) {
+    private static boolean check(int n, int d) {
         if (n < 2) {
             return false;
         }
-        if (divisor * divisor > n) {
+        if (d * d > n) {
             return true;
         }
-        if (n % divisor == 0) {
+        if (n % d == 0) {
             return false;
         }
-        return checkPrime(n, divisor + 1);
+        return check(n, d + 1);
     }
 
     public static int task4(int n) {
@@ -55,13 +55,13 @@ public class Main {
         return a * task6(a, b - 1);
     }
 
-    public static void task7(String str, String prefix) {
+    public static void task7(String str, String pre) {
         if (str.isEmpty()) {
-            System.out.println(prefix);
+            System.out.println(pre);
             return;
         }
         for (int i = 0; i < str.length(); i++) {
-            task7(str.substring(0, i) + str.substring(i + 1), prefix + str.charAt(i));
+            task7(str.substring(0, i) + str.substring(i + 1), pre + str.charAt(i));
         }
     }
 
